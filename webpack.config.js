@@ -2,7 +2,6 @@ const resolve = require('path').resolve
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const url = require('url')
-var ExtractPlugin = require('extract-text-webpack-plugin');
 const publicPath = ''
 
 module.exports = (options = {}) => ({
@@ -31,8 +30,8 @@ module.exports = (options = {}) => ({
         use: ['style-loader', 'css-loader', 'postcss-loader']
       },
       {
-        test:/\.scss$/,
-        loader:ExtractPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
+        test:/\.sass$/,
+        loaders:['style','css','sass']
       },
       {
         test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
@@ -51,8 +50,7 @@ module.exports = (options = {}) => ({
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    }),
-    new ExtractPlugin('[name].css')
+    })
   ],
   resolve: {
     alias: {

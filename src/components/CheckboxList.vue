@@ -2,33 +2,39 @@
   <el-table
     ref="multipleTable"
     :data="tableData3"
+    stripe
     tooltip-effect="dark"
     style="width: 100%"
+    :default-sort = "{prop: 'date', order: 'descending'}"
     @selection-change="handleSelectionChange">
     <el-table-column
       type="selection"
       width="55">
     </el-table-column>
     <el-table-column
-      label="日期"
-      width="120">
+      :label="numbering"
+      width="120"
+      sortable>
       <template slot-scope="scope">{{ scope.row.date }}</template>
     </el-table-column>
     <el-table-column
       prop="name"
       label="姓名"
-      width="120">
+      width="120"
+      sortable>
     </el-table-column>
     <el-table-column
       prop="address"
       label="地址"
-      show-overflow-tooltip>
+      show-overflow-tooltip
+      :formatter="formatter">
     </el-table-column>
   </el-table>
 </template>
 
 <script>
   export default {
+    props: ["numbering"],
     data() {
       return {
         tableData3: [{
@@ -76,6 +82,9 @@
       },
       handleSelectionChange(val) {
         this.multipleSelection = val;
+      },
+      formatter(row, column) {
+        return row.address;
       }
     }
   }
