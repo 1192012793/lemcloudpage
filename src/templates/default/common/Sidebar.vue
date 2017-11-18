@@ -1,52 +1,120 @@
 <template>
 
-<el-menu width="300px" default-active="2-1-1" class="el-menu-vertical-demo"   @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+<el-menu width="3rem" default-active="2-1-1" class="el-menu-vertical-demo"   @open="handleOpen" @close="handleClose" :collapse="isCollapse" :background-color="backgroundColor" :unique-opened=true>
+  <!--用户信息-->
+  <div class="user">
+		<div class="photo">
+			<img  :src="user.avater" alt="">
+		</div>
+		<div class="userinfo">
+			<h3>你好，<span>{{user.name}}</span></h3>
+			<p>所属角色：<span>{{user.role}}</span></p>
+		</div>
+	</div>
+  <!--导航-->
   <el-submenu index="1">
+  	<!--权限-->
     <template slot="title">
-      <i class="el-icon-location"></i>
-      <span slot="title">导航一</span>
+      <i class="iconfont icon-quanxianguanli"></i>
+      <span slot="title">权限管理</span>
     </template>
+    <!--用户-->
     <el-submenu index="1-1">
-      <span slot="title">分组1</span>
-      <el-menu-item index="1-1-1">选项1</el-menu-item>
+    	<template slot="title">
+	      <i class="iconfont icon-jiaoseguanli"></i>
+	      <span slot="title">角色管理</span>
+	    </template>
+	      <el-menu-item index="1-1-1">
+	      	<i class="iconfont icon-liebiao3"></i>
+	      	角色列表
+	      </el-menu-item>
+	      <el-menu-item index="1-1-2">
+	      	<i class="iconfont icon-tianjia"></i>
+	      	添加角色
+	      </el-menu-item>
+	      <el-menu-item index="1-1-3">
+	      	<i class="iconfont icon-piliangtianjia"></i>
+	      	批量添加角色
+	      </el-menu-item>
     </el-submenu>
-    <el-submenu index="1-2">
-      <span slot="title">分组2</span>
-      <el-menu-item index="1-2-1">选项1</el-menu-item>
-    </el-submenu>
-    <el-submenu index="1-3">
-      <span slot="title">分组3</span>
-      <el-menu-item index="1-3-1">选项1</el-menu-item>
-    </el-submenu>
-    <el-submenu index="1-4">
-      <span slot="title">分组4</span>
-      <el-menu-item index="1-4-1">选项1</el-menu-item>
-    </el-submenu>
-  </el-submenu>
-  <el-submenu index="2">
-  	<template slot="title">
-      <i class="el-icon-menu"></i>
-      <span slot="title">导航二</span>
-   </template>
+    
+    <!--角色-->
     <el-submenu index="2-1">
-      <span slot="title">分组1</span>
-      <el-menu-item index="2-1-1">选项1</el-menu-item>
+    	<template slot="title">
+	      <i class="iconfont icon-jiaoseguanli"></i>
+	      <span slot="title">角色管理</span>
+	    </template>
+	      <el-menu-item index="2-1-1">
+	      	<i class="iconfont icon-liebiao3"></i>
+	      	角色列表
+	      </el-menu-item>
+	      <el-menu-item index="1-1-2">
+	      	<i class="iconfont icon-tianjia"></i>
+	      	添加角色
+	      </el-menu-item>
+	      <el-menu-item index="1-1-3">
+	      	<i class="iconfont icon-piliangtianjia"></i>
+	      	批量添加角色
+	      </el-menu-item>
     </el-submenu>
-    <el-submenu index="2-2">
-      <span slot="title">分组2</span>
-      <el-menu-item index="2-2-1">选项1</el-menu-item>
+    
+    <!--资源-->
+    <el-submenu index="1-1">
+    	<template slot="title">
+	      <i class="iconfont icon-jiaoseguanli"></i>
+	      <span slot="title">角色管理</span>
+	    </template>
+	      <el-menu-item index="1-1-1">
+	      	<i class="iconfont icon-liebiao3"></i>
+	      	角色列表
+	      </el-menu-item>
+	      <el-menu-item index="1-1-2">
+	      	<i class="iconfont icon-tianjia"></i>
+	      	添加角色
+	      </el-menu-item>
+	      <el-menu-item index="1-1-3">
+	      	<i class="iconfont icon-piliangtianjia"></i>
+	      	批量添加角色
+	      </el-menu-item>
     </el-submenu>
   </el-submenu>
-  <el-menu-item index="3">
-    <i class="el-icon-setting"></i>
-    <span slot="title">导航三</span>
-  </el-menu-item>
-  <el-button  @click='slide' :rotate='isCollapse' type="primary" icon="el-icon-arrow-left"></el-button>
+    
+    
+    
+  <!--按钮们-->
+  <ul class="btns">
+		<li>
+			<div class="iconfont icon-bianji btn-edit"></div>
+		</li>
+		<li>
+			<div class="iconfont icon-shouhui btn-fold" @click='slide' v-bind:class='{"rotate":isCollapse}'></div>
+		</li>
+		<li>
+			<div class="iconfont icon-caidan5555 btn-mission"></div>
+		</li>
+		<div class="mission">
+			<h3>任务&nbsp;&nbsp;&nbsp;————————</h3>
+			<ol>
+				<li>
+					<span class="icon-eye-open icon-slidenav"></span>
+					<p class="lookRole" mintype="1">查看角色02</p>
+					<span class="iconfont icon-chuyidong1 del"></span>
+				</li>
+			</ol>
+		</div>
+	</ul>
 
+	
 </el-menu>
 
 </template>
 <style>
+	html,body{
+		height:100%;
+	}
+	#app{
+		height:100%;
+	}
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;
@@ -54,13 +122,273 @@
   .slideleft{
   	transform: rotate(180deg);
   }
+  .el-menu-vertical-demo{
+  	-webkit-box-orient:vertical;
+  	border-right:none;
+  	box-shadow: 0.03rem 0.004rem 0.11rem 0rem rgba(227, 227, 227, 0.75);
+  }
+  .el-menu--collapse{
+  	width:1rem;
+  }
+  /*用户信息*/
+ div.user{
+	width:100%;
+	height:1.4rem;
+}
+div.user .photo{
+	/*width: 90px;
+	height: 90px;*/
+	width: 0.78rem;
+	height: 0.78rem;
+	background-color: rgba(228, 239, 252, 1);
+	box-shadow: 0rem 0.08rem 0.12rem 0rem rgba(156, 155, 155, 0.5);
+	border: solid 0.01rem rgba(244, 244, 244, 1);
+	border-radius: 50%;
+	overflow: hidden;
+	/*margin-top:26px;
+	margin-left:23px;*/
+	margin-top:0.31rem;
+	margin-left:0.11rem;
+	float:left;
+}
+div.user .photo img{
+	width:100%;
+	height:100%;
+}
+div.user .userinfo{
+	height:100%;
+	overflow: hidden;
+}
+div.user .userinfo h3{
+	width: 100%;
+	/*height: 25px;
+	line-height: 15px;*/
+	font-size: 0.24rem;
+	font-weight: normal;
+	color: #333333;
+	margin-top:0.4rem;
+	padding-left:0.21rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+div.user .userinfo p{
+	width: 100%;
+	font-size: 0.12rem;
+	font-weight: normal;
+	color: rgb(51,51,51);
+	margin-top:0.17rem;
+	padding-left:0.21rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/*下面的按钮们*/
+ul.btns{
+	width:100%;
+	/*width:0.9rem;*/
+	height:2.5rem;
+	padding-top:0.2rem;
+	padding-bottom:0.2rem;
+	position: relative;
+	background:white;
+	/*position: absolute;
+	right:0;
+	bottom:0;*/
+}
+
+ul.btns >li{
+	height:0.7rem;
+	position: relative;
+	overflow: hidden;
+	cursor:pointer;
+}
+
+ul.btns >li >div{
+	width:0.38rem;
+	height:0.38rem;
+	line-height: 0.38rem;
+	text-align: center;
+	border-radius: 50%;
+	font-size: 0.16rem;
+	position: absolute;
+	right:0.31rem;
+	top:0.16rem;
+	box-shadow: 0 0.06rem 0.1rem 0 rgba(156, 155, 155, 0.59);
+	cursor:pointer;
+}
+ul.btns >li >div.btn-edit{
+	border:0.01rem solid rgb(243,141,141);
+}
+ul.btns >li >div.btn-fold{
+	border:0.01rem solid rgb(55,142,248);
+	/*transition: transform 0.4s;*/
+	line-height: 0.35rem;
+}
+ul.btns >li >div.rotate{
+	transform: rotate(180deg);
+	box-shadow: 0 -0.06rem 0.1rem 0 rgba(156, 155, 155, 0.59);
+}
+/*@media (max-width:750px){
+	
+	aside.minscreen >ul.btns >li >div.btn-fold{
+		transform: rotate(180deg);
+		box-shadow: 0 -0.06rem 0.1rem 0 rgba(156, 155, 155, 0.59);
+	}
+}*/
+ul.btns >li >div.btn-mission{
+	border:0.01rem solid rgb(252,223,58);
+}
+ul.btns >.mission{
+	position: absolute;
+	/*right:-233px;*/
+	right:-2.15rem;
+	/*bottom:0.12rem;*/
+	bottom:0.32rem;
+	width: 2.32rem;
+	/*height: 249px;*/
+	height: auto;
+	background-color: rgba(255, 255, 255, 1);
+	box-shadow: 0.02rem 0.02rem 0.08rem 0 rgba(58, 68, 70, 0.47);
+	border: solid 0.02rem rgba(252, 223, 58, 0.78);
+	opacity: 0.92;
+	border-radius: 0.08rem;
+	padding:0.05rem 0.1rem;
+	display: none;
+}
+ul.btns >.mission:before{
+	content: '';
+	width:0;
+	height:0;
+	border-top:0.09rem solid rgba(255,255,255,0);
+	border-right:0.09rem solid rgba(252,223,58,0.78);
+	border-bottom:0.09rem solid rgba(255,255,255,0);
+	border-left:0.09rem solid rgba(255,255,255,0);
+	position: absolute;
+	left:-0.2rem;
+	bottom:0.12rem;
+}
+ul.btns >.mission:after{
+	content: '';
+	width:0;
+	height:0;
+	border-top:0.07rem solid rgba(255,255,255,0);
+	border-right:0.07rem solid rgba(255,255,255,1);
+	border-bottom:0.07rem solid rgba(255,255,255,0);
+	border-left:0.07rem solid rgba(255,255,255,0);
+	position: absolute;
+	left:-0.14rem;
+	bottom:0.14rem;
+}
+ul.btns >.mission >h3{
+	height:0.24rem;
+	line-height: 0.24rem;
+	font-size: 0.14rem;
+	color:rgb(93,161,245);
+}
+ul.btns >.mission >ol{
+	/*margin-top:10px;*/
+	/*height:197px;*/
+	height:auto;
+}
+ul.btns >.mission >ol >li{
+	margin:0.025rem 0;
+	height:0.34rem;
+	border:0.01rem solid rgb(255,255,255);
+	line-height: 0.34rem;
+	color:rgb(51,51,51);
+	font-size: 0.14rem;
+	text-align: center;
+	cursor:pointer;
+}
+ul.btns >.mission >ol >li:hover{
+	border:0.01rem solid rgb(141,189,249);
+	background:rgb(238, 244, 251);
+}
+ul.btns >.mission >ol >li >.icon-slidenav{
+	width:0.25rem;
+	height:0.32rem;
+	float:left;
+	line-height: 0.35rem;
+	text-align:center;
+	font-size:0.24rem;
+	margin-left:0.05rem;
+}
+ul.btns >.mission >ol >li >.icon-chakan{
+	line-height: 0.32rem;
+}
+ul.btns >.mission >ol >li >p{
+	width:1.3rem;
+	margin-left:0.15rem;
+	height:0.32rem;
+	float:left;
+	line-height: 0.32rem;
+	text-align:center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+ul.btns >.mission >ol >li >.del{
+	width:0.2rem;
+	height:0.32rem;
+	float:left;
+	line-height: 0.37rem;
+	text-align:center;
+	display: none;
+	color:rgb(244,118,117);
+	font-size:0.24rem;
+	margin-right:0.1rem;
+}
+ul.btns >.mission >ol >li:hover >.del{
+	display: block;
+}
+.icon-yaochi{
+	color:rgb(92,247,158);
+}
+.icon-chakan{
+	color:rgb(244,118,117);
+}
+.icon-bianji-copy{
+	color:rgb(92,162,247);
+}
+.icon-shanchu{
+	color:rgb(252,223,58);
+}
+
+.icon-key{
+	color:rgb(92,247,158);
+}
+.icon-eye-open{
+	color:rgb(244,118,117);
+}
+.icon-pencil{
+	color:rgb(92,162,247);
+}
+.icon-trash{
+	color:rgb(252,223,58);
+}
+.icon-yonghuliebiao:before{
+	font-weight:600;
+}
+
 </style>
 
 <script>
+
   export default {
     data() {
       return {
-        isCollapse: false
+        isCollapse: false,
+        backgroundColor:'#ffffff',
+        user:{
+        	name:'啊摇摇',
+//      	avater:'./assets/images/test/per.png',
+        	avater:'',
+        	role:'超级管理员'
+        }
+
+        
       };
     },
     methods: {
@@ -73,6 +401,7 @@
 			slide(){
 				this.isCollapse=!this.isCollapse;
 			}
-    }
+    },
+
   }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-head></v-head>
-    <el-container>
+    <el-container class="autoheight">
       <v-sidebar></v-sidebar>
       <v-home>Main</v-home>
     </el-container>
@@ -20,3 +20,13 @@ export default {
 }
 </script>
 
+<style>
+	.autoheight{
+		position:absolute;
+		top:60px;
+		left:0;
+		right:0;
+		bottom:0;
+	}
+	
+</style>
