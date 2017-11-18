@@ -1,33 +1,34 @@
 <template>
   <el-container>
     <el-header>
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <el-menu-item index="2">处理中心</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">我的工作台</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-        </el-submenu>
-        <el-menu-item index="3">
-          <a target="_blank">订单管理</a>
-        </el-menu-item>
-      </el-menu>
+      <el-row>
+        <el-col :span="24">
+          <el-col :span="12">
+            <div class="grid-content bg-purple">
+              <el-col :span="8" class="lemon_logo">
+                <img src="../../../static/default/image/common/logo.png" alt="">
+                <div class="navbar_header_logo_home">
+                  <i class="icon-home"></i>
+                </div>
+              </el-col>
+              <el-col :span="8">1</el-col>
+              <el-col :span="8">1</el-col>
+            </div>
+          </el-col>
+          <el-col :span="12">
+            <div class="grid-content bg-purple-light">
+              <el-col :span="8">1</el-col>
+              <el-col :span="8">1</el-col>
+              <el-col :span="8">1</el-col>
+            </div>
+          </el-col>
+        </el-col>
+      </el-row>
     </el-header>
   </el-container>
 </template>
 <script>
+require("../../../static/default/style/index/index.scss")
 export default {
-  data() {
-    return {
-      activeIndex: '1',
-      activeIndex2: '1'
-    };
-  },
-  methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    }
-  }
 }
 </script>

@@ -1,0 +1,19 @@
+.el-header{
+    height:0.6rem !important;
+    line-height:0.6rem;
+    padding:0 !important;
+    .el-row{
+        .grid-content{
+            .lemon_logo{
+                height: 100%;
+                position: relative;
+                padding: 0;
+                img{
+                    width: 37%;
+                display: block;
+                margin: 0 auto;
+                }
+            }
+        }
+    }
+}
