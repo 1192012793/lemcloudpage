@@ -1,6 +1,6 @@
 <template>
-<!--default-active=""-->
-<el-menu  class="el-menu-vertical-demo" :router=true  @open="handleOpen" @close="handleClose" :collapse="isCollapse" :background-color="backgroundColor" :unique-opened=true >
+
+<el-menu default-active="home" class="el-menu-vertical-demo" :router=true  @open="handleOpen" @close="handleClose" :collapse="isCollapse" :background-color="backgroundColor" :unique-opened=true >
   <!--用户信息-->
   <div class="user">
 		<div class="photo">
