@@ -17,10 +17,10 @@
   	
 	  <el-submenu :index="item.lid.toString()" key="item.lid">	
 	  	<template slot="title">
+	  		<div class="rightborder"></div>
+	  		<div class="rightarrow"></div>
 	      <i class="iconfont firstlevel" :class="item.icon"></i>
 	      <span slot="title">{{item.title}}</span>
-	      <div class="rightborder"></div>
-	      <div class="rightarrow"></div>
 	    </template>
 	    
 	  	<template v-if="item.level==3" >
@@ -136,17 +136,42 @@
   	background:rgb(216,214,214);
   	z-index: 2;
   }
+  .el-menu-item, .el-submenu__title{
+  	height:0.7rem;
+  	line-height:0.7rem;
+  }
   i.firstlevel{
   	width:0.45rem;
   	margin-right:0.3rem;
+  	font-size: 0.26rem;
   }
   i.secondlevel{
   	width:0.45rem;
   	margin-right:0.2rem;
+  	font-size: 0.22rem;
   }
   i.thirdlevel{
   	width:0.45rem;
   	margin-right:0.1rem;
+  	font-size: 0.2rem;
+  }
+  i.firstlevel+span{
+  	font-size: 0.2rem;
+    color: rgb(102,102,102)
+  }
+  i.secondlevel+span{
+  	font-size: 0.18rem;
+    color: rgb(102,102,102)
+  }
+  i.thirdlevel+span{
+  	font-size: 0.16rem;
+    color: rgb(102,102,102)
+  }
+  i.firstlevel+span+i{
+  	font-size:0.25rem;
+  }
+  i.secondlevel+span+i{
+  	font-size:0.16rem;
   }
   li.is-opened >div.el-submenu__title{
   	background:rgb(241,241,241)!important;
@@ -201,9 +226,7 @@
   .el-menu-item:hover .leftline{
   	display: block;
   }
-  i.firstlevel+span+i{
-  	font-size:16px;
-  }
+  
   /*用户信息*/
  div.user{
 	width:100%;
