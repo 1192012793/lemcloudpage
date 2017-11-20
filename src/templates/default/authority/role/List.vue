@@ -1,6 +1,6 @@
 <template>
   <div>
-   <v-checkboxList :numbering="numbering"></v-checkboxList>
+   <v-checkboxList :items="items"></v-checkboxList>
   </div>
 </template>
 
@@ -13,7 +13,20 @@ export default {
   },
   data() {
       return {
-          numbering:'编号'
+         items: [{
+         id: 1,
+         type : "selection"
+       },
+       {
+         id: 2,
+         type:" ",
+         label : "编号"
+       },
+       {
+         id: 3,
+         type:" ",
+         label : "姓名"
+       }],
       }
   }
 }
