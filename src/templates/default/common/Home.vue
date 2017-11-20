@@ -1,17 +1,11 @@
 <template>
-  <div class="ajac_dom">
-    <home-content></home-content>
-    <home-heard></home-heard>
-  </div>
+  <el-main>
+	  <transition name="slide-fade">
+	      <router-view class="content"></router-view>
+	  </transition>
+  </el-main>
 </template>
 
 <script>
-import HomeContent from "./Home_content/Home_content.vue"
-import HomeHeard from "./Home_heard/Home_heard.vue"
-export default {
-  components: {
-    HomeContent, HomeHeard
-  }
-}
-</script>
 
+</script>

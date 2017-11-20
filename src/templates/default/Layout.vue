@@ -14,6 +14,7 @@ import vSidebar from './common/Sidebar.vue';
 import vHome from './common/Home.vue';
 
 export default {
+	name:'app',
   components:{
     vHead, vSidebar,vHome
   }

@@ -1,6 +1,6 @@
 <template>
-
-<el-menu default-active="" class="el-menu-vertical-demo"   @open="handleOpen" @close="handleClose" :collapse="isCollapse" :background-color="backgroundColor" :unique-opened=true >
+<!--default-active=""-->
+<el-menu  class="el-menu-vertical-demo" :router=true  @open="handleOpen" @close="handleClose" :collapse="isCollapse" :background-color="backgroundColor" :unique-opened=true >
   <!--用户信息-->
   <div class="user">
 		<div class="photo">
@@ -32,7 +32,7 @@
 				    </template>
 			    	
 	  				<template v-for="item3 in navlist" v-if="item3.pid==item2.lid" >
-				    	<el-menu-item :index="item3.lid.toString()" key="item3.lid">
+				    	<el-menu-item :index="item3.linkto" key="item3.lid">
 				    		<div class="leftline"></div>
 				      	<i class="iconfont thirdlevel" :class="item3.icon"></i>
 				      	{{item3.title}}
@@ -46,7 +46,7 @@
 	  	
 	  	<template v-if="item.level==2" >
 	  		<template v-for="item4 in navlist" v-if="item4.pid==item.lid" >
-		    	<el-menu-item :index="item4.lid.toString()" key="item4.lid">
+		    	<el-menu-item :index="item4.linkto" key="item4.lid">
 		      	<i class="iconfont secondlevel" :class="item4.icon"></i>
 		      	{{item4.title}}
 		      </el-menu-item>
@@ -488,6 +488,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-quanxianguanli',
         		title:'权限管理',
+        		linkto:'',
         		level:3,
         		pid:0,
         		lid:1
@@ -495,6 +496,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-jiaoseguanli',
         		title:'角色管理',
+        		linkto:'',
         		level:3,
         		pid:1,
         		lid:2
@@ -502,6 +504,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-liebiao3',
         		title:'角色列表',
+        		linkto:'/role/List',
         		level:3,
         		pid:2,
         		lid:3
@@ -509,6 +512,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-tianjia',
         		title:'添加角色',
+        		linkto:'',
         		level:3,
         		pid:2,
         		lid:4
@@ -516,6 +520,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-piliangtianjia',
         		title:'批量添加角色',
+        		linkto:'',
         		level:3,
         		pid:2,
         		lid:5
@@ -524,6 +529,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-yonghuguanli',
         		title:'用户管理',
+        		linkto:'',
         		level:3,
         		pid:1,
         		lid:6
@@ -531,6 +537,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-yonghuliebiao',
         		title:'用户列表',
+        		linkto:'',
         		level:3,
         		pid:6,
         		lid:7
@@ -538,6 +545,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-tianjiaxinyonghu',
         		title:'添加用户',
+        		linkto:'',
         		level:3,
         		pid:6,
         		lid:8
@@ -545,6 +553,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-tianjiaduoyonghu',
         		title:'批量添加用户',
+        		linkto:'',
         		level:3,
         		pid:6,
         		lid:9
@@ -553,6 +562,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-ziyuanguanli',
         		title:'资源管理',
+        		linkto:'',
         		level:2,
         		pid:1,
         		lid:10
@@ -560,6 +570,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-ziyuanguanli2',
         		title:'资源列表',
+        		linkto:'',
         		level:2,
         		pid:10,
         		lid:11
@@ -567,6 +578,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-tianjiaziyuan-q',
         		title:'添加资源',
+        		linkto:'',
         		level:2,
         		pid:10,
         		lid:12
@@ -575,6 +587,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-gerenzhongxin',
         		title:'个人中心',
+        		linkto:'',
         		level:3,
         		pid:0,
         		lid:13
@@ -582,6 +595,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-wodedenglu_shezhi',
         		title:'我的设置',
+        		linkto:'',
         		level:3,
         		pid:0,
         		lid:14
@@ -589,6 +603,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-shujukuguanli',
         		title:'数据库管理',
+        		linkto:'',
         		level:2,
         		pid:0,
         		lid:15
@@ -596,6 +611,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-beifenshujuku',
         		title:'备份数据库',
+        		linkto:'',
         		level:2,
         		pid:15,
         		lid:16
@@ -603,6 +619,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-shuju-yihuifu',
         		title:'恢复数据库',
+        		linkto:'',
         		level:2,
         		pid:15,
         		lid:17
@@ -610,6 +627,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-Group',
         		title:'优化数据库',
+        		linkto:'',
         		level:2,
         		pid:15,
         		lid:18
@@ -617,6 +635,7 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-rizhiguanli',
         		title:'日志管理',
+        		linkto:'',
         		level:2,
         		pid:0,
         		lid:19
@@ -624,12 +643,14 @@ ul.btns >.mission >ol >li:hover >.del{
         	{
         		icon:'icon-rizhitongji',
         		title:'日志列表',
+        		linkto:'',
         		level:2,
         		pid:19,
         		lid:20
         	},
         	{
         		icon:'icon-rizhiliebiao',
+        		linkto:'',
         		title:'日志统计',
         		level:2,
         		pid:19,
