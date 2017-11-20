@@ -3,7 +3,7 @@
     <v-head></v-head>
     <el-container class="autoheight">
       <v-sidebar></v-sidebar>
-      <v-home>Main</v-home>
+      <v-home></v-home>
     </el-container>
   </div>
 </template>

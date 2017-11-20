@@ -13,7 +13,7 @@
                   <i class="icon-home"></i>
                 </div>
               </el-col>
-              <el-col :span="6" class="lemon_title hidden-lg-and-down">
+              <el-col :span="6" class="lemon_title hidden-sm-and-down">
                   <h4 class="el-col-24">青柠后台管理系统欢迎您</h4>
               </el-col>
               <el-col :span="8" :sm="12"  :lg="8" class="lemon_search">
@@ -40,7 +40,7 @@
              <el-col :span="9" class="lemon_admin_image">
                <div class="lemon_admin_image_content el-col-12" ></div>
                <div class="lemon_admin_image_font el-col-10 hidden-md-only">
-                 <span>您好 ,GIGI</span>
+                 <span>您好,GIGI</span>
                </div>
              </el-col>
                <el-col :span="5" class="lemon_admin_output hidden-md-only">

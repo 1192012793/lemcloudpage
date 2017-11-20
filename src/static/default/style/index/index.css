@@ -154,6 +154,9 @@
 .el-row .el-col .lemon_admin_output{
     padding-top:0.05rem;
 }
+.el-row .el-col .lemon_admin_output img{
+    width:100%;
+}
 @media only screen and (min-width: 768px){
     .lemon_search{
         margin-left:0.7rem;
